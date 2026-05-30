@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="et"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#111d23",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f9f9f9",
+                    "on-background": "#1a1c1c",
+                    "on-primary-fixed-variant": "#3c494f",
+                    "on-tertiary-container": "#00a1ea",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface-variant": "#43474a",
+                    "inverse-surface": "#2f3131",
+                    "tertiary": "#001e30",
+                    "secondary-fixed": "#d4e6e5",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "on-secondary-fixed-variant": "#3a4a49",
+                    "outline": "#73787a",
+                    "surface-dim": "#dadada",
+                    "surface": "#f9f9f9",
+                    "primary-fixed-dim": "#bbc8d0",
+                    "primary": "#111d23",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#263238",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#004b70",
+                    "on-secondary-container": "#576867",
+                    "inverse-primary": "#bbc8d0",
+                    "on-primary": "#ffffff",
+                    "secondary": "#516161",
+                    "outline-variant": "#c3c7ca",
+                    "on-surface": "#1a1c1c",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-primary-container": "#8d9aa1",
+                    "surface-tint": "#546067",
+                    "tertiary-fixed": "#cae6ff",
+                    "surface-container": "#eeeeee",
+                    "secondary-container": "#d4e6e5",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-low": "#f3f3f4",
+                    "secondary-fixed-dim": "#b8cac9",
+                    "tertiary-fixed-dim": "#8dcdff",
+                    "primary-fixed": "#d7e4ec",
+                    "on-secondary-fixed": "#0e1e1e",
+                    "tertiary-container": "#00344f",
+                    "on-tertiary-fixed": "#001e30",
+                    "surface-variant": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "xl": "48px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "max-width": "1200px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "title-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(17, 29, 35, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-primary/70 backdrop-blur-md border-b border-on-surface/10 shadow-[0_20px_20px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center px-4 h-16 w-full max-w-max-width mx-auto">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity" data-icon="home">home</button>
+<span class="font-display-lg text-headline-lg-mobile tracking-tight text-primary absolute left-1/2 -translate-x-1/2">icegear</span>
+<span class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity" data-icon="search">search</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-20 pb-20 max-w-max-width mx-auto">
+<!-- Kategooriad Section -->
+<section class="px-4 py-6">
+<h2 class="font-title-md text-title-md text-primary mb-md">Kategooriad</h2>
+<div class="grid grid-cols-2 gap-4">
+<!-- Category Card 1 -->
+<a class="relative rounded-xl overflow-hidden aspect-[4/3] group" href="#">
+<img alt="Uisud" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYeAy1kDGEJGYoBqTvBU4J3ruwuTEf-iky_bq6N9G47HrrhoJxwJHSoIeDRY-oE1pobyX4sWjEFB_Qjb-5RS3-jTvy1m6TEwb-iXTryxna6y7oWXPaGe2pqWSfz_siivIVcQcgCp_jvsjnKj6c9o_USO_YTrU3VdtyfzphfCF40Wg4C3kHWqdkIBNeKyfn6oskjLZpDFxtCdFpUIYcJm0PPi3IHJsMe6dwtr_qgdQtaRgZ5gURmPK2LtVKE-qCNp7QqKINKzNpekm9"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+<span class="text-white font-title-md text-title-md">Uisud</span>
+</div>
+</a>
+<!-- Category Card 2 -->
+<a class="relative rounded-xl overflow-hidden aspect-[4/3] group" href="#">
+<img alt="Hoki" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGX6F3DS_5Yrhkik_4WZfzhl2K6MaBwdaD0_LxNnE6GzVSYUHGAlZKBlp1frCxS6H5rOFht0FH9fEFyPgNbvbWbY9QFWP47utymhrXb_hKVRyjdiGSBIQ_d8Ikj5mtJEtzFb4avZCmqwC06UVuEJhzuQAj2Q4ZccnxtcmTf1b6EfOjk8r__jUFdkWDUdEcoCyKMgFdgZDpDMdodwkEs9vfBp7UwHVPeQwoRutssSpHDSGhG1oCONekMlpEgORfhT6xDJmL1B4XM3Nq"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+<span class="text-white font-title-md text-title-md">Hoki</span>
+</div>
+</a>
+<!-- Category Card 3 -->
+<a class="relative rounded-xl overflow-hidden aspect-[4/3] group" href="#">
+<img alt="Varustus" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsToerDUNoYhnYWgabeTIhXETJfN6Qgz9950inYHHMsRvkjJQh5dmBthC-MV4oLuLKGx44eRohWDR1Ra0TRS2d9brj6PdPATOvSwgJxSfzp5M_URY4GXmmly56C24Pk_DuOg_7WUVy_PcYTA5GM19hPevN1qSK7z2q3KcoUehgRnEYEg_tqBVyIHdzj2oBO5XT1rtnNsLjxVWl2gPNSA_zVBWW4JZzr6NMPmgnVj0P6a_oXvwNIdBdhR-Zb0A5CUCRyBSmxtwcJySv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+<span class="text-white font-title-md text-title-md">Varustus</span>
+</div>
+</a>
+<!-- Category Card 4 -->
+<a class="relative rounded-xl overflow-hidden aspect-[4/3] group" href="#">
+<img alt="Aksessuaarid" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvokCPnrWLUGhZX6HRvT24ayvclVRsUvGZg0mxYHBYUrgVmokVB0gUzb1LhSgPheTDvC0A0aferMsERHp2cGJ_tI03_OJWq13QLSj8yul6z9HVg5zr65_rhCrGgFiUt0b-tddpKfAGLDdXzBIZ6dCrMJy44JSW20L-eNq344nNEtjOYMg0VcF_2u1ihzDVlQ6WWDMtyVAfXRcRWlIoMNKal5hWH00pFdDMk7_stuTUjoEvKsa-8jSBYvRk1wj7DhewaJW2uYNdabF9"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+<span class="text-white font-title-md text-title-md">Aksessuaarid</span>
+</div>
+</a>
+</div>
+</section>
+<!-- Search Bar -->
+<section class="px-4 mb-lg">
+<div class="relative w-full max-w-2xl mx-auto">
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-on-tertiary-container font-body-md text-on-surface" placeholder="Otsi varustust..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+</div>
+</section>
+<!-- Filters -->
+<section class="flex gap-sm overflow-x-auto px-4 pb-4 mb-lg no-scrollbar">
+<button class="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+            Kõik filtrid
+        </button>
+<button class="flex items-center gap-2 px-6 py-2 glass-card text-primary rounded-full font-label-sm text-label-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">
+            Hind
+            <span class="material-symbols-outlined text-[16px]" data-icon="expand_more">expand_more</span>
+</button>
+<button class="flex items-center gap-2 px-6 py-2 glass-card text-primary rounded-full font-label-sm text-label-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">
+            Kaubamärk
+            <span class="material-symbols-outlined text-[16px]" data-icon="expand_more">expand_more</span>
+</button>
+</section>
+<!-- Product Grid -->
+<div class="px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="glass-card rounded-xl overflow-hidden group flex flex-col">
+<div class="relative aspect-square p-4 bg-white/30">
+<img alt="Bauer uisud" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYeAy1kDGEJGYoBqTvBU4J3ruwuTEf-iky_bq6N9G47HrrhoJxwJHSoIeDRY-oE1pobyX4sWjEFB_Qjb-5RS3-jTvy1m6TEwb-iXTryxna6y7oWXPaGe2pqWSfz_siivIVcQcgCp_jvsjnKj6c9o_USO_YTrU3VdtyfzphfCF40Wg4C3kHWqdkIBNeKyfn6oskjLZpDFxtCdFpUIYcJm0PPi3IHJsMe6dwtr_qgdQtaRgZ5gURmPK2LtVKE-qCNp7QqKINKzNpekm9"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm text-on-tertiary-container mb-1 uppercase tracking-widest">Bauer</span>
+<h3 class="font-title-md text-title-md text-primary">Bauer Vapor HyperLite</h3>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card rounded-xl overflow-hidden group flex flex-col">
+<div class="relative aspect-square p-4 bg-white/30">
+<img alt="CCM uisud" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD990i5jA4LF8fwf-Ipeeb6qY7q0EbDrjEDRi3vk4gg_nTqYlwETROgSIdeadppFlsc1zIhhj9oE9ip3LggN4jlm6TR5-Fm0Za9kNe43mlbyyP3s601zbsUANYnsyo3D7fmjrI3uP_MRHQ7yeHdygh3UcIy5MpesXrnk1-cGQ9iCViXgLgsyvHjZezetwDA0d_-xVaSPJNhNzE8HLFQbYNXMQEGo_IgQWiXaVjfjgEI2iHjMls_28Tj4WJ1_CDXELv3p-CLqwrDQJdn"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm text-on-tertiary-container mb-1 uppercase tracking-widest">CCM</span>
+<h3 class="font-title-md text-title-md text-primary">CCM JetSpeed FT4</h3>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card rounded-xl overflow-hidden group flex flex-col">
+<div class="relative aspect-square p-4 bg-white/30">
+<img alt="Hokikepp" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGX6F3DS_5Yrhkik_4WZfzhl2K6MaBwdaD0_LxNnE6GzVSYUHGAlZKBlp1frCxS6H5rOFht0FH9fEFyPgNbvbWbY9QFWP47utymhrXb_hKVRyjdiGSBIQ_d8Ikj5mtJEtzFb4avZCmqwC06UVuEJhzuQAj2Q4ZccnxtcmTf1b6EfOjk8r__jUFdkWDUdEcoCyKMgFdgZDpDMdodwkEs9vfBp7UwHVPeQwoRutssSpHDSGhG1oCONekMlpEgORfhT6xDJmL1B4XM3Nq"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm text-on-tertiary-container mb-1 uppercase tracking-widest">Sherwood</span>
+<h3 class="font-title-md text-title-md text-primary">Sherwood Code TMP1</h3>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card rounded-xl overflow-hidden group flex flex-col">
+<div class="relative aspect-square p-4 bg-white/30">
+<img alt="Kiiver" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsToerDUNoYhnYWgabeTIhXETJfN6Qgz9950inYHHMsRvkjJQh5dmBthC-MV4oLuLKGx44eRohWDR1Ra0TRS2d9brj6PdPATOvSwgJxSfzp5M_URY4GXmmly56C24Pk_DuOg_7WUVy_PcYTA5GM19hPevN1qSK7z2q3KcoUehgRnEYEg_tqBVyIHdzj2oBO5XT1rtnNsLjxVWl2gPNSA_zVBWW4JZzr6NMPmgnVj0P6a_oXvwNIdBdhR-Zb0A5CUCRyBSmxtwcJySv"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm text-on-tertiary-container mb-1 uppercase tracking-widest">Warrior</span>
+<h3 class="font-title-md text-title-md text-primary">Warrior Alpha One</h3>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="mt-xl text-center px-4">
+<button class="w-full max-w-xs px-8 py-3 glass-card rounded-full font-label-sm text-label-sm text-primary hover:bg-surface-container-highest transition-all uppercase tracking-widest">
+            Laadi rohkem tooteid
+        </button>
+</div>
+</main>
+</body></html>

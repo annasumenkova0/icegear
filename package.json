@@ -1,0 +1,17 @@
+{
+  "name": "icegear",
+  "version": "1.0.0",
+  "description": "Winter sports equipment catalog",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "scrape": "npm --prefix scraper run start",
+    "db:import:scraped": "node scripts/import_scraped.js",
+    "db:clear": "node scripts/clear_icegear.js",
+    "db:clear:scraper": "node scripts/clear_scraper.js",
+    "db:reset:from-scraped": "npm run db:clear && npm run db:import:scraped"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

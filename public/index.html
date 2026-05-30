@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="light" lang="et">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#f9f9f9",
+            "on-background": "#1a1c1c",
+            "on-surface-variant": "#43474a",
+            "on-surface": "#1a1c1c",
+            "primary": "#111d23",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#bbc8d0",
+            "on-tertiary-container": "#00a1ea",
+            "on-tertiary-fixed-variant": "#004b70",
+            "outline-variant": "#c3c7ca",
+            "outline": "#73787a",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f3f3f4",
+            "surface-container": "#eeeeee",
+            "surface-container-high": "#e8e8e8",
+            "surface-container-highest": "#e2e2e2",
+            "tertiary-fixed": "#cae6ff",
+            "on-tertiary-fixed": "#001e30",
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem",
+          },
+          spacing: {
+            "unit": "4px", "gutter": "16px", "xl": "48px",
+            "xs": "4px", "sm": "8px", "md": "16px", "lg": "24px",
+            "margin-mobile": "16px", "margin-desktop": "64px", "max-width": "1200px",
+          },
+          fontFamily: {
+            "headline-lg-mobile": ["Inter"], "label-sm": ["Inter"],
+            "title-md": ["Inter"], "body-md": ["Inter"],
+            "body-lg": ["Inter"], "display-lg": ["Inter"], "headline-lg": ["Inter"],
+          },
+          fontSize: {
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+            "title-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+          },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/shared/styles.css"/>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md border-b border-on-surface/10 shadow-[0_20px_20px_rgba(0,0,0,0.04)]">
+  <div class="flex justify-between items-center px-4 h-16 w-full max-w-max-width mx-auto">
+    <div class="w-12 flex justify-start">
+      <a href="/" class="material-symbols-outlined text-primary p-2 hover:opacity-80 transition-opacity">home</a>
+    </div>
+    <h1 class="font-display-lg text-headline-lg-mobile tracking-tight text-primary text-center flex-1">icegear</h1>
+    <div class="w-12 flex justify-end">
+      <span class="material-symbols-outlined text-primary p-2 hover:opacity-80 transition-opacity cursor-pointer" onclick="document.getElementById('search-input').focus()">search</span>
+    </div>
+  </div>
+</header>
+
+<main class="pt-20 pb-20 max-w-max-width mx-auto">
+
+  <section class="px-4 py-6">
+    <h2 class="font-title-md text-title-md text-primary mb-md">Kategooriad</h2>
+    <div id="categories-grid" class="grid grid-cols-2 gap-4">
+      <div class="rounded-xl aspect-[4/3] bg-surface-container animate-pulse"></div>
+      <div class="rounded-xl aspect-[4/3] bg-surface-container animate-pulse"></div>
+      <div class="rounded-xl aspect-[4/3] bg-surface-container animate-pulse"></div>
+      <div class="rounded-xl aspect-[4/3] bg-surface-container animate-pulse"></div>
+    </div>
+  </section>
+
+  <section class="px-4 mb-lg">
+    <div class="relative w-full max-w-2xl mx-auto">
+      <input
+        id="search-input"
+        class="w-full h-14 pl-12 pr-4 bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-on-tertiary-container font-body-md text-on-surface"
+        placeholder="Otsi varustust..."
+        type="text"
+      />
+      <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+    </div>
+  </section>
+
+  <section class="flex gap-sm overflow-x-auto px-4 pb-4 mb-lg no-scrollbar">
+    <button
+      id="filter-all"
+      class="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm whitespace-nowrap"
+      onclick="clearFilters()"
+    >
+      <span class="material-symbols-outlined text-[18px]">tune</span>
+      Kõik filtrid
+    </button>
+    <div id="brand-filters" class="flex gap-sm"></div>
+  </section>
+
+  <div id="product-grid" class="px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+    <div class="rounded-xl aspect-square bg-surface-container animate-pulse"></div>
+    <div class="rounded-xl aspect-square bg-surface-container animate-pulse"></div>
+    <div class="rounded-xl aspect-square bg-surface-container animate-pulse"></div>
+    <div class="rounded-xl aspect-square bg-surface-container animate-pulse"></div>
+  </div>
+
+  <div class="mt-xl text-center px-4">
+    <button
+      id="load-more-btn"
+      class="hidden w-full max-w-xs px-8 py-3 glass-card rounded-full font-label-sm text-label-sm text-primary hover:bg-surface-container-highest transition-all uppercase tracking-widest"
+      onclick="loadMore()"
+    >
+      Laadi rohkem tooteid
+    </button>
+  </div>
+
+</main>
+
+<script>
+  const LIMIT = 8;
+  let currentPage = 1;
+  let currentCategoryId = null;
+  let currentBrand = null;
+  let currentSearch = '';
+  let searchTimer = null;
+
+  function buildUrl(page) {
+    const params = new URLSearchParams({ page, limit: LIMIT });
+    if (currentCategoryId) params.set('category_id', currentCategoryId);
+    if (currentBrand) params.set('brand', currentBrand);
+    if (currentSearch) params.set('search', currentSearch);
+    return `/api/products?${params}`;
+  }
+
+  function productCardHTML(p) {
+    return `
+      <a href="/product?id=${p.id}" class="glass-card rounded-xl overflow-hidden group flex flex-col">
+        <div class="relative aspect-square p-4 bg-white/30">
+          <img
+            alt="${p.name}"
+            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+            src="${p.image_url}"
+          />
+          ${p.badge ? `<div class="absolute top-2 left-2 bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full font-label-sm text-label-sm text-[10px]">${p.badge}</div>` : ''}
+        </div>
+        <div class="p-4 flex flex-col flex-grow">
+          <span class="font-label-sm text-label-sm text-on-tertiary-container mb-1 uppercase tracking-widest">${p.brand}</span>
+          <h3 class="font-title-md text-title-md text-primary">${p.name}</h3>
+        </div>
+      </a>
+    `;
+  }
+
+  async function loadProducts(append = false) {
+    const grid = document.getElementById('product-grid');
+    if (!append) {
+      grid.innerHTML = Array(4).fill('<div class="rounded-xl aspect-square bg-surface-container animate-pulse"></div>').join('');
+    }
+
+    const res = await fetch(buildUrl(currentPage));
+    const products = await res.json();
+
+    if (!append) grid.innerHTML = '';
+    grid.insertAdjacentHTML('beforeend', products.map(productCardHTML).join(''));
+
+    const btn = document.getElementById('load-more-btn');
+    btn.classList.toggle('hidden', products.length < LIMIT);
+  }
+
+  async function loadMore() {
+    currentPage++;
+    await loadProducts(true);
+  }
+
+  async function loadCategories() {
+    const res = await fetch('/api/categories');
+    const categories = await res.json();
+    const grid = document.getElementById('categories-grid');
+    grid.innerHTML = categories.map(cat => `
+      <button
+        class="relative rounded-xl overflow-hidden aspect-[4/3] group text-left bg-surface-container-low"
+        onclick="filterByCategory(${cat.id}, '${cat.name}')"
+        data-category-id="${cat.id}"
+      >
+        <img
+          alt="${cat.name}"
+          class="w-full h-full object-contain object-center p-3 group-hover:scale-[1.03] transition-transform duration-700"
+          src="${cat.image_url}"
+          style="aspect-ratio: 4/3;"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+          <span class="text-white font-title-md text-title-md">${cat.name}</span>
+        </div>
+      </button>
+    `).join('');
+  }
+
+  async function loadBrandFilters() {
+    const res = await fetch('/api/brands');
+    const brands = await res.json();
+    const container = document.getElementById('brand-filters');
+    container.innerHTML = brands.map(brand => `
+      <button
+        class="flex items-center gap-2 px-6 py-2 glass-card text-primary rounded-full font-label-sm text-label-sm whitespace-nowrap hover:bg-surface-container-high transition-colors"
+        onclick="filterByBrand('${brand}')"
+        data-brand="${brand}"
+      >
+        ${brand}
+      </button>
+    `).join('');
+  }
+
+  function filterByCategory(id, name) {
+    currentCategoryId = id;
+    currentBrand = null;
+    currentPage = 1;
+    updateFilterUI();
+    loadProducts();
+  }
+
+  function filterByBrand(brand) {
+    currentBrand = brand;
+    currentCategoryId = null;
+    currentPage = 1;
+    updateFilterUI();
+    loadProducts();
+  }
+
+  function clearFilters() {
+    currentCategoryId = null;
+    currentBrand = null;
+    currentSearch = '';
+    currentPage = 1;
+    document.getElementById('search-input').value = '';
+    updateFilterUI();
+    loadProducts();
+  }
+
+  function updateFilterUI() {
+    document.querySelectorAll('[data-category-id]').forEach(btn => {
+      const isActive = String(btn.dataset.categoryId) === String(currentCategoryId);
+      btn.querySelector('.absolute').style.background = isActive
+        ? 'linear-gradient(to top, rgba(17,29,35,0.9), rgba(17,29,35,0.4))'
+        : '';
+    });
+
+    document.querySelectorAll('[data-brand]').forEach(btn => {
+      const isActive = btn.dataset.brand === currentBrand;
+      btn.classList.toggle('bg-primary', isActive);
+      btn.classList.toggle('text-on-primary', isActive);
+      btn.classList.toggle('glass-card', !isActive);
+    });
+  }
+
+  document.getElementById('search-input').addEventListener('input', e => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      currentSearch = e.target.value.trim();
+      currentPage = 1;
+      loadProducts();
+    }, 300);
+  });
+
+  loadCategories();
+  loadBrandFilters();
+  loadProducts();
+</script>
+
+</body>
+</html>
